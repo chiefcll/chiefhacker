@@ -1,0 +1,35 @@
+"	JSConf 2015 - Amelia Island, FL
+o	Polymer: The future of Web Components
+"	Midwest JS 2016 - Minneapolis, MN
+o	Polymer in Practice
+"	LibertyJS - 2016 - Philadelphia, PA
+o	Polymer in Practice
+"	TYPO3 Developer Days 2016 - Nuremberg, Germany
+o	Polymer Changes Everything!
+o	Polymer in Practice @ Comcast
+o	Hands on with Polymer
+"	Polymer Summit 2016 for Google - London, UK
+o	Polymer in Practice @ Comcast
+"	The Web Platform Podcast 2016
+o	Special guest speaker with John Riviello
+"	The Lead Developer 2017 - NYC, NY
+o	Why I < heart-polymer >
+"	Web Components Remote Conf 2017 - Virtual
+o	A Vanilla Component
+"	MinneWebCon 2017 - Minneapolis, MN
+o	Web Components: The Future of Web Development is here
+"	Little Rock Tech Fest  2017 - Little Rock, AR
+o	Web Components: A simpler and faster React
+"	Software as a Craft 2017 - Philadelphia PA
+o	Why I < heart-polymer >
+"	DevFest Florida 2017 - Tampa, FL
+o	Decoupling with Google Polymer
+"	ThunderNerds Podcast - 2017
+o	Special Guest speaker with John Riviello
+"	LibertyJS 2017 - Philadelphia, PA
+o	Web Components: The Future of Web Development is Here
+"	Confoo 2017 - Vancouver, BC
+o	Decoupling with Google Polymer
+o	Web Components for Micro Services and IoT
+"	WebCon 2018 - University of Illinois
+o	Ensuring Design Standards with Web Components

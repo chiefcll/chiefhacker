@@ -11,20 +11,20 @@ safe: true
 
 
 # edit here to achieve your personal greatness
-url: http://username.github.io/
-baseurl: /sustain/
-title: Chris Turner
-author: Chris Turner
+url: http://chiefcll.github.io/
+baseurl: /
+title: Chris Lorenzo - Distinguished Engineer at Comcast in Philadelphia
+author: Chris Lorenzo
 description: Personal blog and resume
-avatar: profile.png
-email: yourname@email.com
-github: jekyller/sustain # username
-twitter: username
-linkedin: username
-stackoverflow: username   #e.g: users/2735833/proton1h1
+avatar: profile.jpg
+#email: chiefcll@gmail.com
+github: chiefcll # username
+twitter: chiefcll
+linkedin: chris-lorenzo-3323667
+stackoverflow: users/9324642/chris-lorenzo   #e.g: users/2735833/proton1h1
 #Comment out if you don't want disqus
-disqus: username
-google_analytics: UA-69391421-1
+#disqus: username
+#google_analytics: UA-69391421-1
 
 
 # needed for travis-ci build
