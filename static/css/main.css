@@ -6,28 +6,35 @@ body {
   background-color: #fff;
   color: #333;
   line-height: 1.42857143;
-  font-family: 'Source Sans Pro', sans-serif;
-  border-top: 3px solid #4285f4;
+  font-family: Arial, Helvetica, sans-serif;
   margin: 0;
   box-sizing: border-box;
 }
-/* Wrapper for page content to push down footer */
-#wrap {
-  padding-bottom: 0px;
-  min-height: 100%;
-  height: auto;
-  /* Negative indent footer by its height */
-  margin: 0 auto -41px;
-  /* Pad bottom by footer height */
-  /*padding: 0 0 60px;*/
+
+body {
+  padding-top: 60px;
 }
 
+footer {
+  border-bottom: 5px solid #4285f4;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
 /* Navbar
 -------------------------------------------------- */
 nav {
+  background: #fff;
+  box-sizing: border-box;
+  border-top: 3px solid #4285f4;
   min-height: 50px;
   margin-bottom: 20px;
   padding: 0 10px 0 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
 }
 .mynav > li > a {
   color: #6b6b6b;
@@ -69,8 +76,8 @@ a {
 h3 {
   font-size: 28px;
   margin-top: 20px;
-  margin-bottom: 10px;
-  font-weight: 500;
+  margin-bottom: 0px;
+  font-weight: 400;
   line-height: 1.2;
 }
 
@@ -78,13 +85,18 @@ h4 {
   font-size: 22px;
   margin-top: 20px;
   margin-bottom: 10px;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.1;
+}
+h4.tagline {
+  margin-top: 0;
 }
 .about-me {
   font-size: 18px;
-  line-height: 1.2;
-  margin: 1rem 0 2rem;
+  line-height: 1.3;
+  margin: 2rem auto 2rem;
+  max-width: 650px;
+  text-align: left;
 }
 .container {
   width: auto;
@@ -111,6 +123,9 @@ h4 {
   word-spacing: 25px;
 }
 .social > h4 > a {
+  width: 22px;
+  height: 22px;
+  display: inline-block;
   color: #000000;
 }
 .avatar {
@@ -118,10 +133,11 @@ h4 {
 }
 
 .subline {
-  margin-top: -8px;
+  margin-top: 0px;
 }
 .my-talks {
   text-align: left;
+  margin-bottom: 75px;
 }
 .my-talks > dt {
   font-size: 18px;
@@ -135,15 +151,8 @@ h4 {
 
 /* Footer
 -------------------------------------------------- */
-
-.footer {
-  text-decoration: none !important;
-}
 .text-muted {
 	color: #6b6b6b;
   font-size: 14px;
   margin: 12px 0 4px;
-}
-div.footer{
-  border-bottom: 5px solid #4285f4;;
 }
