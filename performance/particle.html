@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/particle-api-js/5/particle.min.js"></script>
+  <title>Particle Message</title>
+
+
+</head>
+<body>
+  <h1>Particle Message</h1>
+
+  <input id="mess" type="text">
+  <button id="go">Send!</button>
+
+  <pre id="output" style="height: 400px; overflow-y: scroll; border: 1px solid grey;">
+
+  </pre>
+
+  <script>
+      var token = '168814795c2b144cc45fcff09e38ba7a442f1060';
+      var particle = new Particle();
+
+      /*particle.login({username: 'chiefcll@gmail.com', password: pass.value}).then(
+        function(data){
+          console.log('API call completed on promise resolve: ', data.body.access_token);
+          token = data.body.access_token;
+        },
+        function(err) {
+          console.log('API call completed on promise fail: ', err);
+        }
+      ); */
+
+      go.addEventListener('click', ()=> {
+        var publishEventPr = particle.publishEvent({ name: 'tc-hunt-event-chiefcll', data: mess.value, auth: token });
+
+        publishEventPr.then(
+          function(data) {
+            if (data.body.ok) { console.log("Event published succesfully") }
+          },
+          function(err) {
+            console.log("Failed to publish event: " + err)
+          }
+        );
+      });
+
+      var allOutput = '';
+
+      particle.getEventStream({ deviceId: 'mine', auth: token }).then(function(stream) {
+        stream.on('event', function(data) {
+          allOutput += JSON.stringify(data, null, 4) + '\n';
+          output.textContent = allOutput;
+        });
+      });
+
+    </script>
+</body>
+</html>
