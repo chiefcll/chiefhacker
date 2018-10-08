@@ -9,7 +9,7 @@
     <link rel="favicon" href="{{ site.baseurl }}static/img/favicon.ico?v=3">
     <link rel="icon" type="image/png" href="{{ site.baseurl }}static/img/favicon-32x32.png" sizes="32x32" />
     <link rel="icon" type="image/png" href="{{ site.baseurl }}static/img/favicon-16x16.png" sizes="16x16" />
-
+    <link rel="manifest" href="/manifest.json">
 
     {% if page.title %}
       <title>{{ page.title }}</title>
@@ -17,7 +17,31 @@
       <title>{{ site.title }}</title>
     {% endif %}
 
+  <script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('./service-worker.js');
+    }
+    else {
+        console.log('Service Worker functionality not supported.');
+    }
 
+    window.addEventListener('load', function() {
+      var status = document.getElementById("status");
+      var log = document.getElementById("log");
+
+      function updateOnlineStatus(event) {
+        var condition = navigator.onLine ? "online" : "offline";
+
+        status.className = condition;
+        status.innerHTML = condition.toUpperCase();
+
+        log.insertAdjacentHTML("beforeend", "Event: " + event.type + "; Status: " + condition);
+      }
+
+      window.addEventListener('online',  updateOnlineStatus);
+      window.addEventListener('offline', updateOnlineStatus);
+    });
+  </script>
 
   <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}static/css/main.css" />
 

@@ -53,6 +53,7 @@ footer {
 }
 
 .img-circle {
+  height: 300px;
   border-radius: 50%;
 }
 
