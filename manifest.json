@@ -2,7 +2,7 @@
   "name": "Chiefhacker",
   "short_name": "Chiefhacker",
   "start_url": "/",
-  "display": "fullscreen",
+  "display": "standalone",
   "background_color": "#2196f3",
   "theme_color": "#2196f3",
   "description": "Chris Lorenzo's Site",

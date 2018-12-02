@@ -118,13 +118,17 @@ h4.tagline {
 }
 .social {
   padding-top: 0px;
-  word-spacing: 25px;
 }
 .social > h4 > a {
   width: 22px;
   height: 22px;
+  padding-left: 22px;
   display: inline-block;
   color: #000000;
+}
+
+.social > h4 > a:first-child {
+  padding-left: 0;
 }
 
 .subline {

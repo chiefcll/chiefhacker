@@ -9,7 +9,21 @@
     <link rel="favicon" href="{{ site.baseurl }}static/img/favicon.ico?v=3">
     <link rel="icon" type="image/png" href="{{ site.baseurl }}static/img/favicon-32x32.png" sizes="32x32" />
     <link rel="icon" type="image/png" href="{{ site.baseurl }}static/img/favicon-16x16.png" sizes="16x16" />
+    <!-- Generator https://manytools.org/http-html-text/apple-touch-icon-generator/ -->
+    <link rel="apple-touch-icon" href="{{ site.baseurl }}static/img/touch-icons/apple-touch-icon-iphone-60x60.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="{{ site.baseurl }}static/img/touch-icons/apple-touch-icon-ipad-76x76">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ site.baseurl }}static/img/touch-icons/apple-touch-icon-iphone-retina-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="{{ site.baseurl }}static/img/touch-icons/apple-touch-icon-ipad-retina-152x152.png">
     <link rel="manifest" href="/manifest.json">
+
+    <!--
+      Lots of issues with PWAs on Safari iOS, use web applications
+      https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html
+      Bugs:
+      https://medium.com/@firt/pwas-are-coming-to-ios-11-3-cupertino-we-have-a-problem-2ff49fd7d6ea
+      https://medium.com/@firt/progressive-web-apps-on-ios-are-here-d00430dee3a7
+
+    -->
 
     {% if page.title %}
       <title>{{ page.title }}</title>
@@ -44,6 +58,17 @@
   </script>
 
   <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}static/css/main.css" />
+
+  <style>
+    @media all and (display-mode: standalone) {
+      .mynav {
+        border-top: none;
+      }
+      footer {
+        border-bottom: none;
+      }
+    }
+  </style>
 
     <!-- Google Analytics -->
     {% include analytics.html %}
