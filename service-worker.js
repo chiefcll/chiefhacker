@@ -16,7 +16,7 @@ self.addEventListener('install', function(event) {
 self.addEventListener('fetch', function (event) {
 
   let url = event.request.url;
-  if (/\.jpg$|.png$|.gif$|.webp$/.test(url)) {
+  if (/profile\.jpg$/.test(url)) {
     // Connection Type is not available yet
     // https://developer.mozilla.org/en-US/docs/Web/API/Network_Information_API
     // navigator.connection.type === 'cellular'
