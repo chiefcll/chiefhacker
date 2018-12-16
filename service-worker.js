@@ -39,6 +39,30 @@ self.addEventListener('fetch', function (event) {
   }
 });
 
+self.addEventListener('notificationclose', function(e) {
+  console.log('Closed notification');
+});
+
+self.addEventListener('notificationclick', function({notification, action}) {
+  if (action === 'close') {
+    notification.close();
+  } else {
+    clients.openWindow('https://www.chiefhacker.com/speaking.html');
+    notification.close();
+  }
+});
+
+self.addEventListener('push', function(e) {
+  e.waitUntil(
+    self.registration.showNotification('Conference Alert!!!', {
+      body: 'Chris has a new conference scheduled!',
+      icon: 'static/img/icons/icon-144x144.png',
+      vibrate: [200, 100, 200, 100, 200, 100, 200],
+      tag: 'vibration-sample'
+    })
+  );
+});
+
 self.addEventListener('fetch', function(event) {
   event.respondWith(
     fetch(event.request).catch(function() {

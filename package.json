@@ -4,7 +4,8 @@
   "description": "[![Build Status](https://secure.travis-ci.org/jekyller/sustain.png?branch=gh-pages)](http://travis-ci.org/jekyller/sustain) [![Ruby](https://img.shields.io/badge/ruby-2.4.2-blue.svg?style=flat)](http://travis-ci.org/jekyller/sustain) [![Jekyll](https://img.shields.io/badge/jekyll-3.6.2-blue.svg?style=flat)](http://travis-ci.org/jekyller/sustain)",
   "main": "index.js",
   "scripts": {
-    "build": "jekyll build",
+    "build": "bundle exec jekyll build",
+    "start": "bundle exec jekyll serve",
     "deploy": "firebase deploy",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,5 +18,11 @@
   "bugs": {
     "url": "https://github.com/chiefcll/chiefhacker/issues"
   },
-  "homepage": "https://github.com/chiefcll/chiefhacker#readme"
+  "homepage": "https://github.com/chiefcll/chiefhacker#readme",
+  "devDependencies": {
+    "jekyll": "^3.0.0-beta1"
+  },
+  "dependencies": {
+    "eslint": "^5.10.0"
+  }
 }
