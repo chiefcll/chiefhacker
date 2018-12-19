@@ -8,6 +8,7 @@ self.addEventListener('install', function(event) {
         '/speaking.html',
         '/static/css/main.css',
         '/static/img/profile.jpg',
+        '/static/img/profile_offline.jpg'
       ]);
     })
   );

@@ -30,9 +30,22 @@
     {% else %}
       <title>{{ site.title }}</title>
     {% endif %}
-  
+
+    <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}static/css/main.css" />
+
+  <style>
+    @media all and (display-mode: standalone) {
+      .mynav {
+        border-top: none;
+      }
+      footer {
+        border-bottom: none;
+      }
+    }
+  </style>
+
   <script>
-    
+
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('./service-worker.js');
     }
@@ -54,8 +67,8 @@
       }
       return outputArray;
   }
-  
-    
+
+
     function displayNotification() {
       if (Notification.permission === 'granted') {
         navigator.serviceWorker.ready.then(function(registration) {
@@ -146,36 +159,17 @@
       })
     }
 
-    window.addEventListener('load', function() {
-      var status = document.getElementById("status");
-      var log = document.getElementById("log");
+    //PWAs can detect network status!!
+    function updateOnlineStatus(event) {
+      let profileImg = document.getElementById('profileImg');
+      let src = profileImg.src;
 
-      function updateOnlineStatus(event) {
-        var condition = navigator.onLine ? "online" : "offline";
-
-        status.className = condition;
-        status.innerHTML = condition.toUpperCase();
-
-        log.insertAdjacentHTML("beforeend", "Event: " + event.type + "; Status: " + condition);
-      }
-
-      window.addEventListener('online',  updateOnlineStatus);
-      window.addEventListener('offline', updateOnlineStatus);
-    });
-  </script>
-
-  <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}static/css/main.css" />
-
-  <style>
-    @media all and (display-mode: standalone) {
-      .mynav {
-        border-top: none;
-      }
-      footer {
-        border-bottom: none;
-      }
+      profileImg.src = navigator.onLine ? src.replace('_offline', '') : src.replace('.jpg', '_offline.jpg');
     }
-  </style>
+
+    window.addEventListener('online',  updateOnlineStatus);
+    window.addEventListener('offline', updateOnlineStatus);
+  </script>
 
     <!-- Google Analytics -->
     {% include analytics.html %}
