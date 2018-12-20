@@ -45,13 +45,13 @@
   </style>
 
   <script>
-
+    // Optimize loading perf - https://developers.google.com/web/fundamentals/primers/service-workers/registration
     if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('./service-worker.js');
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/service-worker.js');
+      });
     }
-    else {
-        console.log('Service Worker functionality not supported.');
-    }
+
 
     function urlBase64ToUint8Array(base64String) {
       var padding = '='.repeat((4 - base64String.length % 4) % 4);
