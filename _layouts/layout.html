@@ -14,6 +14,8 @@
     <link rel="apple-touch-icon" sizes="60x60" href="{{ site.baseurl }}static/img/touch-icons/apple-touch-icon-ipad-76x76">
     <link rel="apple-touch-icon" sizes="114x114" href="{{ site.baseurl }}static/img/touch-icons/apple-touch-icon-iphone-retina-120x120.png">
     <link rel="apple-touch-icon" sizes="144x144" href="{{ site.baseurl }}static/img/touch-icons/apple-touch-icon-ipad-retina-152x152.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
     <link rel="manifest" href="/manifest.json">
 
     <!--
@@ -31,15 +33,21 @@
       <title>{{ site.title }}</title>
     {% endif %}
 
-    <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}static/css/main.css" />
+  <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}static/css/main.css" />
 
   <style>
     @media all and (display-mode: standalone) {
       .mynav {
-        border-top: none;
+        border-top-width: 1px;
+        top: auto;
+        bottom: 10px;
       }
-      footer {
-        border-bottom: none;
+      .img-circle {
+        height: 250px;
+      }
+
+      body {
+        padding-top: 30px;
       }
     }
   </style>
@@ -166,7 +174,8 @@
 
       profileImg.src = navigator.onLine ? src.replace('_offline', '') : src.replace('.jpg', '_offline.jpg');
     }
-
+    
+    // This doesn't work on Mobile Safari?? :-(
     window.addEventListener('online',  updateOnlineStatus);
     window.addEventListener('offline', updateOnlineStatus);
   </script>
