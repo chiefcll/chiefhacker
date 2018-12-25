@@ -8,7 +8,9 @@ self.addEventListener('install', function(event) {
         '/speaking.html',
         '/static/css/main.css',
         '/static/img/profile.jpg',
-        '/static/img/profile_offline.jpg'
+        '/static/img/profile_offline.jpg',
+        '/static/js/offline.js',
+        '/static/js/notifications.js',
       ]);
     })
   );
@@ -33,22 +35,18 @@ self.addEventListener('fetch', function (event) {
     event.respondWith(
         fetch(url.replace(/\.[a-z]*$/, `_${size}$&`), {
             mode: 'no-cors'
-        }).catch(function() {
-          return caches.match('/static/img/profile.jpg');
-        })
+        }).catch(e => caches.match('/static/img/profile.jpg'))
     );
   }
 });
 
-self.addEventListener('notificationclose', function(e) {
-  console.log('Closed notification');
-});
+self.addEventListener('notificationclose', e => console.log('Closed notification'));
 
 self.addEventListener('notificationclick', function({notification, action}) {
   if (action === 'close') {
     notification.close();
   } else {
-    clients.openWindow('https://www.chiefhacker.com/speaking.html');
+    clients.openWindow('/speaking.html');
     notification.close();
   }
 });
@@ -61,6 +59,20 @@ self.addEventListener('push', function(e) {
       vibrate: [200, 100, 200, 100, 200, 100, 200],
       tag: 'vibration-sample'
     })
+    .then(
+      clients.matchAll({
+        type: 'window',
+        includeUncontrolled: true
+      }).then(windowClients => {
+        windowClients.forEach((windowClient) => {
+          windowClient.postMessage({
+            message: 'Received a push message.',
+            time: new Date().toString()
+          });
+        });
+      })
+    )
+    .catch(e => console.log('not good'))
   );
 });
 

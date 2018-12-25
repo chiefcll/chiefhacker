@@ -23,6 +23,7 @@
     "jekyll": "^3.0.0-beta1"
   },
   "dependencies": {
-    "eslint": "^5.10.0"
+    "eslint": "^5.10.0",
+    "web-push": "^3.3.3"
   }
 }

@@ -13,3 +13,4 @@ Gemfile.lock
 *.swp
 
 node_modules
+private_key.js

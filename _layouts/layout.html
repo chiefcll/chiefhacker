@@ -40,7 +40,8 @@
       .mynav {
         border-top-width: 1px;
         top: auto;
-        bottom: 10px;
+        bottom: 0;
+        padding-bottom: 10px;
       }
       .img-circle {
         height: 250px;
@@ -59,126 +60,11 @@
         navigator.serviceWorker.register('/service-worker.js');
       });
     }
-
-
-    function urlBase64ToUint8Array(base64String) {
-      var padding = '='.repeat((4 - base64String.length % 4) % 4);
-      var base64 = (base64String + padding)
-          .replace(/\-/g, '+')
-          .replace(/_/g, '/');
-
-      var rawData = window.atob(base64);
-      var outputArray = new Uint8Array(rawData.length);
-
-      for (var i = 0; i < rawData.length; ++i) {
-          outputArray[i] = rawData.charCodeAt(i);
-      }
-      return outputArray;
-  }
-
-
-    function displayNotification() {
-      if (Notification.permission === 'granted') {
-        navigator.serviceWorker.ready.then(function(registration) {
-          /*registration.showNotification('Conference Alert!!!', {
-            body: 'Check out where Chris will be speaking next...',
-            icon: 'static/img/icons/icon-144x144.png',
-            vibrate: [200, 100, 200, 100, 200, 100, 200],
-            tag: 'vibration-sample'
-          });
-          */
-          registration.pushManager.getSubscription().then(function(sub) {
-            console.log(sub);
-            if (sub === null) {
-              // Update UI to ask user to register for Push
-              console.log('Not subscribed to push service!');
-            } else {
-              // We have a subscription, update the database
-              console.log('p256dh: ', sub.getKey('p256dh'));
-              console.log('Auth: ', sub.getKey('auth'));
-              console.log('Subscription object: ', sub);
-            }
-          });
-
-           registration.pushManager.subscribe({
-              userVisibleOnly: true,
-              applicationServerKey: urlBase64ToUint8Array(
-                'BMml6nfim9qV3ETjXWWRPs1e7VG0wVhbiqdjEBWqdEB4HAfGLljuSzqlmG3Bp-iRfnS224P-mqd-G0TpCebcqyw'
-              )
-            }).then(function(sub) {
-              console.log('Endpoint URL: ', sub.endpoint);
-            }).catch(function(e) {
-              if (Notification.permission === 'denied') {
-                console.warn('Permission for notifications was denied');
-              } else {
-                console.error('Unable to subscribe to push', e);
-              }
-            });
-        });
-        // navigator.serviceWorker.getRegistration().then(function(reg) {
-        //   var options = {
-        //     body: 'Here is a notification body!',
-        //     icon: 'static/img/icons/icon-144x144.png',
-        //     vibrate: [100, 50, 100],
-        //     data: {
-        //       dateOfArrival: Date.now(),
-        //       primaryKey: 1
-        //     },
-        //     actions: [
-        //       {action: 'explore', title: 'Explore this new world',
-        //         icon: 'static/img/icons/icon-144x144.png'},
-        //       {action: 'close', title: 'Close notification',
-        //         icon: 'static/img/icons/icon-144x144.png'},
-        //     ]
-        //   };
-        //   reg.showNotification('Hello world!', options);
-        // });
-      } else {
-        Notification.requestPermission(function(status) {
-            console.log('Notification permission status:', status);
-        });
-      }
-    }
-
-    displayNotification();
-
-    function sendNotification(endpoint) {
-      var notification = {
-        'title': 'Portugal vs. Denmark',
-        'body': '5 to 1',
-        'icon': 'static/img/icons/icon-144x144.png',
-        'click_action': 'https://www.chiefhacker.com/speaking.html'
-      };
-
-      fetch(endpoint, {
-        'method': 'POST',
-        'headers': {
-          'Content-Type': 'application/json'
-        },
-        'body': JSON.stringify({
-          data: {
-            'notification': notification,
-          }
-        })
-      }).then(function(response) {
-        console.log(response);
-      }).catch(function(error) {
-        console.error(error);
-      })
-    }
-
-    //PWAs can detect network status!!
-    function updateOnlineStatus(event) {
-      let profileImg = document.getElementById('profileImg');
-      let src = profileImg.src;
-
-      profileImg.src = navigator.onLine ? src.replace('_offline', '') : src.replace('.jpg', '_offline.jpg');
-    }
-    
-    // This doesn't work on Mobile Safari?? :-(
-    window.addEventListener('online',  updateOnlineStatus);
-    window.addEventListener('offline', updateOnlineStatus);
   </script>
+
+  <script src="{{ site.baseurl }}static/js/offline.js"></script>
+  <script src="{{ site.baseurl }}static/js/notifications.js"></script>
+  <script src="{{ site.baseurl }}static/js/push.js"></script>
 
     <!-- Google Analytics -->
     {% include analytics.html %}
