@@ -52,20 +52,6 @@
       }
     }
   </style>
-
-  <script>
-    // Optimize loading perf - https://developers.google.com/web/fundamentals/primers/service-workers/registration
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', function() {
-        navigator.serviceWorker.register('/service-worker.js');
-      });
-    }
-  </script>
-
-  <script src="{{ site.baseurl }}static/js/offline.js"></script>
-  <script src="{{ site.baseurl }}static/js/notifications.js"></script>
-  <script src="{{ site.baseurl }}static/js/push.js"></script>
-
     <!-- Google Analytics -->
     {% include analytics.html %}
   </head>
@@ -73,6 +59,19 @@
     {% include header.html %}
 
     {{ content }}
-  <footer></footer>
+    <footer></footer>
+
+    <script>
+      // Optimize loading perf - https://developers.google.com/web/fundamentals/primers/service-workers/registration
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('/service-worker.js');
+        });
+      }
+    </script>
+
+    <script src="{{ site.baseurl }}static/js/offline.js"></script>
+    <script src="{{ site.baseurl }}static/js/notifications.js"></script>
+    <script src="{{ site.baseurl }}static/js/push.js"></script>
   </body>
 </html>

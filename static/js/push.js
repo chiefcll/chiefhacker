@@ -22,8 +22,22 @@ function logSubscription(sub) {
   console.log('Sub JSON: ', JSON.stringify(sub));
 }
 
+const NotificationsWithActions = Object.assign({}, MyNotification, {
+  actions: [
+  {
+    action: 'up',
+    title: 'Thumbs Up',
+    icon: '/static/img/thumbs-up.png'
+  },
+  {
+    action: 'down',
+    title: 'Thumbs Down',
+    icon: '/static/img/thumbs-down.png'
+  }
+]});
+
 navigator.serviceWorker.ready.then(function(registration) {
-  registration.showNotification('Service Worker Notification', MyNotification);
+  registration.showNotification('Service Worker Notification', NotificationsWithActions);
 
   registration.pushManager.getSubscription().then(function(sub) {
     console.log(sub);
