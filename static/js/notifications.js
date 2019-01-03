@@ -21,17 +21,19 @@ const MyNotification = {
 const checkbox = document.getElementById('notifyMe');
 const notifyOn = Notification.permission === 'granted';
 
-if (notifyOn) {
-  checkbox.setAttribute('checked', '');
-}
-
-checkbox.addEventListener('change', e => {
-  if (checkbox.checked) {
-    Notification.requestPermission().then(function(result) {
-      console.log(result); // granted!
-      new Notification('Permission Granted!', MyNotification);
-    });
-  } else {
-    //Can't turn off notifications via JS - need to do this in Chrome
+if (checkbox) {
+  if (notifyOn) {
+    checkbox.setAttribute('checked', '');
   }
-});
+
+  checkbox.addEventListener('change', e => {
+    if (checkbox.checked) {
+      Notification.requestPermission().then(function(result) {
+        console.log(result); // granted!
+        new Notification('Permission Granted!', MyNotification);
+      });
+    } else {
+      //Can't turn off notifications via JS - need to do this in Chrome
+    }
+  });
+}
