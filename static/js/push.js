@@ -22,6 +22,7 @@ function logSubscription(sub) {
   console.log('Sub JSON: ', JSON.stringify(sub));
 }
 
+//Actions only work from Service worker and don't show icons.
 const NotificationsWithActions = Object.assign({}, MyNotification, {
   actions: [
   {

@@ -20,6 +20,12 @@
       Apple PWA:
       https://medium.com/appscope/designing-native-like-progressive-web-apps-for-ios-1b3cdda1d0e8
       https://appsco.pe/developer/splash-screens
+
+      Lots of issues with PWAs on Safari iOS, use web applications
+      https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html
+      Bugs:
+      https://medium.com/@firt/pwas-are-coming-to-ios-11-3-cupertino-we-have-a-problem-2ff49fd7d6ea
+      https://medium.com/@firt/progressive-web-apps-on-ios-are-here-d00430dee3a7
     -->
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link href="{{ site.baseurl }}static/img/splashscreens/iphone5_splash.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
@@ -33,15 +39,6 @@
     <link href="{{ site.baseurl }}static/img/splashscreens/ipadpro3_splash.png" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
     <link href="{{ site.baseurl }}static/img/splashscreens/ipadpro2_splash.png" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
     <link rel="manifest" href="/manifest.json">
-
-    <!--
-      Lots of issues with PWAs on Safari iOS, use web applications
-      https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html
-      Bugs:
-      https://medium.com/@firt/pwas-are-coming-to-ios-11-3-cupertino-we-have-a-problem-2ff49fd7d6ea
-      https://medium.com/@firt/progressive-web-apps-on-ios-are-here-d00430dee3a7
-
-    -->
 
     {% if page.title %}
       <title>{{ page.title }}</title>
@@ -87,7 +84,7 @@
     </script>
 
     <script src="{{ site.baseurl }}static/js/offline.js"></script>
-    <script src="{{ site.baseurl }}static/js/notifications.js"></script>
-    <script src="{{ site.baseurl }}static/js/push.js"></script>
+    <!-- <script src="{{ site.baseurl }}static/js/notifications.js"></script> -->
+    <!-- <script src="{{ site.baseurl }}static/js/push.js"></script> -->
   </body>
 </html>
