@@ -7,6 +7,7 @@
     "build": "bundle exec jekyll build",
     "start": "bundle exec jekyll serve",
     "deploy": "firebase deploy",
+    "push": "node node-push.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

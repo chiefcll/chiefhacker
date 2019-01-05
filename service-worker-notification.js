@@ -52,43 +52,13 @@ self.addEventListener('fetch', function (event) {
 
 self.addEventListener('notificationclose', e => {
   console.log('Closed notification: ', e);
-  //Can't do this! InvalidAccessError
-  //e.waitUntil(clients.openWindow('/404'));
-  e.notification.close();
 });
 
 self.addEventListener('notificationclick', ({notification, action}) => {
   if (action === 'thumbs-down') {
     notification.close();
-  } else {
+  } else if (action === 'thumbs-up') {
     clients.openWindow('/speaking.html');
     notification.close();
   }
 });
-
-self.addEventListener('push', function(e) {
-  let notification = e.data.json();
-  e.waitUntil(
-    self.registration.showNotification(notification.title, {
-      body: notification.body,
-      icon: 'static/img/icons/icon-144x144.png',
-      image: '/static/img/speaking.jpg',
-      tag: 'push-conference-alert'
-    })
-  );
-});
-
-// Use this to check if the user already has your site open and send it a postMessage
-function messageClientWindows() {
-  return clients.matchAll({
-    type: 'window',
-    includeUncontrolled: true
-  }).then(windowClients => {
-    windowClients.forEach((windowClient) => {
-      windowClient.postMessage({
-        message: 'Received a push message.',
-        time: new Date().toString()
-      });
-    });
-  });
-}
