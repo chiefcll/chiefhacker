@@ -34,13 +34,13 @@ self.addEventListener('fetch', function (event) {
     // Connection Type is not available yet
     // https://developer.mozilla.org/en-US/docs/Web/API/Network_Information_API
     // navigator.connection.type === 'cellular'
-
     let size = {
       "2g": 'old',
       "3g": 'head',
       "4g": 'medium',
-      "slow-2g": 'xsmall'
+      "slow-2g": 'xsmall' //as if 2g wasnt slow enough 😢
     }[navigator.connection.effectiveType];
+
 
     event.respondWith(
         fetch(url.replace(/\.[a-z]*$/, `_${size}$&`), {
@@ -48,40 +48,4 @@ self.addEventListener('fetch', function (event) {
         }).catch(e => caches.match('/static/img/profile.jpg'))
     );
   }
-});
-
-self.addEventListener('notificationclose', e => console.log('Closed notification'));
-
-self.addEventListener('notificationclick', function({notification, action}) {
-  if (action === 'close') {
-    notification.close();
-  } else {
-    clients.openWindow('/speaking.html');
-    notification.close();
-  }
-});
-
-self.addEventListener('push', function(e) {
-  e.waitUntil(
-    self.registration.showNotification('Conference Alert!!!', {
-      body: 'Chris has a new conference scheduled!',
-      icon: 'static/img/icons/icon-144x144.png',
-      vibrate: [200, 100, 200, 100, 200, 100, 200],
-      tag: 'vibration-sample'
-    })
-    .then(
-      clients.matchAll({
-        type: 'window',
-        includeUncontrolled: true
-      }).then(windowClients => {
-        windowClients.forEach((windowClient) => {
-          windowClient.postMessage({
-            message: 'Received a push message.',
-            time: new Date().toString()
-          });
-        });
-      })
-    )
-    .catch(e => console.log('not good'))
-  );
 });
