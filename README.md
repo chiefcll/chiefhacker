@@ -34,3 +34,11 @@ Links
 Please reach out to me on Twitter, happy to help :-)
 
 —[Chris](https://twitter.com/chiefcll)
+
+
+#Todo
+Fix fetch event with images
+Record app install banner.
+Record fetch images for profile
+Sync event to get latest speaking.html
+Button to display notification on demand
