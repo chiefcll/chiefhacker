@@ -28,4 +28,11 @@ stackoverflow: users/9324642/chris-lorenzo   #e.g: users/2735833/proton1h1
 
 
 # needed for travis-ci build
-exclude: [vendor]
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/

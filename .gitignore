@@ -11,3 +11,7 @@ Gemfile.lock
 
 # others
 *.swp
+
+node_modules
+private_key.js
+.firebase/*
