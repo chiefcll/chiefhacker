@@ -22,30 +22,29 @@ self.addEventListener('install', function(event) {
 
 self.addEventListener('fetch', function(event) {
   event.respondWith(
-    fetch(event.request).catch(function() {
+    fetchHandler(event.request).catch(function() {
       return caches.match(event.request);
     })
   );
 });
 
-self.addEventListener('fetch', function (event) {
+const fetchHandler = event => {
   let url = event.request.url;
   if (/profile\.jpg$/.test(url)) {
     // Connection Type is not available yet
     // https://developer.mozilla.org/en-US/docs/Web/API/Network_Information_API
     // navigator.connection.type === 'cellular'
+
     let size = {
       "2g": 'old',
       "3g": 'head',
       "4g": 'medium',
-      "slow-2g": 'xsmall' //as if 2g wasnt slow enough 😢
+      "slow-2g": 'xsmall'
     }[navigator.connection.effectiveType];
 
-
-    event.respondWith(
-        fetch(url.replace(/\.[a-z]*$/, `_${size}$&`), {
-            mode: 'no-cors'
-        }).catch(e => caches.match('/static/img/profile.jpg'))
-    );
+    return fetch(url.replace(/\.[a-z]*$/, `_${size}$&`))
+            .catch(e => caches.match('/static/img/profile.jpg'))
   }
-});
+
+  return fetch(url);
+}

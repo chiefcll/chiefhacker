@@ -78,14 +78,15 @@
       // Optimize loading perf - https://developers.google.com/web/fundamentals/primers/service-workers/registration
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', function() {
-          navigator.serviceWorker.register('/service-worker.js');
+          navigator.serviceWorker.register('/service-worker.js')
+            .then(reg => reg.sync.register('syncConferences'));
         });
       }
     </script>
 
     <script src="{{ site.baseurl }}static/js/offline.js"></script>
     <script src="{{ site.baseurl }}static/js/notifications.js"></script>
-    <script src="{{ site.baseurl }}static/js/sw-notification.js"></script>
+    <!-- <script src="{{ site.baseurl }}static/js/sw-notification.js"></script> -->
     <!-- <script src="{{ site.baseurl }}static/js/push.js"></script> -->
   </body>
 </html>

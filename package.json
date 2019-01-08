@@ -21,6 +21,8 @@
   },
   "homepage": "https://github.com/chiefcll/chiefhacker#readme",
   "devDependencies": {
+    "firebase-cli": "^1.2.0",
+    "firebase-tools": "^6.2.2",
     "jekyll": "^3.0.0-beta1"
   },
   "dependencies": {

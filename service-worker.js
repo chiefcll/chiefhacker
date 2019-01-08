@@ -4,9 +4,11 @@ For More info on service workers read:
 https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/
 https://developers.google.com/web/fundamentals/primers/service-workers/
 */
+
+const myCache = 'chiefhacker-v1';
 self.addEventListener('install', function(event) {
   event.waitUntil(
-    caches.open('chiefhacker-v1').then(function(cache) {
+    caches.open(myCache).then(function(cache) {
       return cache.addAll([
         '/',
         '/speaking.html',
@@ -22,14 +24,12 @@ self.addEventListener('install', function(event) {
 
 self.addEventListener('fetch', function(event) {
   event.respondWith(
-    fetch(event.request).catch(function() {
-      return caches.match(event.request);
-    })
+    staleWhileRevalidate(event)
   );
 });
 
-self.addEventListener('fetch', function (event) {
-  let url = event.request.url;
+const fetchHandler = request => {
+  let url = request.url;
   if (/profile\.jpg$/.test(url)) {
     // Connection Type is not available yet
     // https://developer.mozilla.org/en-US/docs/Web/API/Network_Information_API
@@ -42,13 +42,23 @@ self.addEventListener('fetch', function (event) {
       "slow-2g": 'xsmall'
     }[navigator.connection.effectiveType];
 
-    event.respondWith(
-        fetch(url.replace(/\.[a-z]*$/, `_${size}$&`), {
-            mode: 'no-cors'
-        }).catch(e => caches.match('/static/img/profile.jpg'))
-    );
+    return fetch(url.replace(/\.[a-z]*$/, `_${size}$&`))
+            .catch(e => caches.match('/static/img/profile.jpg'))
   }
-});
+
+  return fetch(request);
+}
+
+const staleWhileRevalidate = event =>
+  caches.open(myCache).then((cache) =>
+    cache.match(event.request).then((response) => {
+      var fetchPromise = fetchHandler(event.request).then((networkResponse) => {
+        cache.put(event.request, networkResponse.clone());
+        return networkResponse;
+      })
+      return response || fetchPromise;
+    })
+  )
 
 self.addEventListener('notificationclose', e => {
   console.log('Closed notification: ', e);
@@ -76,6 +86,13 @@ self.addEventListener('push', function(e) {
       tag: 'push-conference-alert'
     })
   );
+});
+
+self.addEventListener('sync', function(event) {
+  if (event.tag === 'syncConferences') {
+    console.log('Getting the latest speaking engagements');
+    event.waitUntil(caches.open(myCache).then((cache) => cache.add('/speaking.html')));
+  }
 });
 
 // Use this to check if the user already has your site open and send it a postMessage
