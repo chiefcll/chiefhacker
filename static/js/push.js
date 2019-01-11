@@ -58,4 +58,4 @@ function urlBase64ToUint8Array(base64String) {
 
 function logSubscription(sub) {
   console.log('Sub JSON: ', JSON.stringify(sub, null, 2));
-}  
+}

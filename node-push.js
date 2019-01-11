@@ -4,11 +4,11 @@ const privateVapidKey = require('./private_key.js');
 const publicVapidKey = 'BEjYRLcs198fROr8BWQtwbHKA01kigkq23XnzthjRM-EPnKmLNv6S5Fj22P2hNl2ii95l_zQRvG-mFioBpfhbL8';
 
 const subscription = {
-  "endpoint": "https://fcm.googleapis.com/fcm/send/eKbyPbaV1Rs:APA91bHw74G9zj6cVYqSNWBRFZ-ssu-TIx1fREXdsqcQuRm_vlW0i5leZIi0Pth8QyazF5SGa1FQ8O7WC1C6UycEWwXseaT9UNs2uLOIlxZ7NXBEVamP6oYBqtBiQgoo1Kk0ymmCv5uT",
+  "endpoint": "https://fcm.googleapis.com/fcm/send/f0ZND_zrgBA:APA91bH_O8h-WMEPqg85XUD_-8LpMcF1MKhWPMmedfgn7VFy5_S_oRn7kNur_f_XSaOEpfeIKW2ClKE_HD4qbTFQnl432PL6bKpye0LzjNg4QPcAdoqL7R4nLQsaH9Y3VN5FcPq-g12j",
   "expirationTime": null,
   "keys": {
-    "p256dh": "BKYFp0uM7lxNXcqhkyVy5gHKUHwwjTOx0KeuBvTUuWy1pHl2uEktMibffDMJjzCO3WfI1wW_2jzvjUNWZZPnoLU",
-    "auth": "HlWdvK6mvM5iBjbESfQQVw"
+    "p256dh": "BNHVnpwvUBHkf-MhebzAWWYq-fg7gHWHYL3lzDok9-JfiFvtw9yDSP5Mpmlj_ODHRhaJ8NrfkrIIXZmWGAaHz1U",
+    "auth": "kJ9S6-KqxKn00uoER-NlWQ"
   }
 };
 
@@ -29,6 +29,6 @@ const payload = JSON.stringify({
   body: 'Chris is speaking at CodeMash!'
 });
 
-webpush.sendNotification(firefoxSubscription, payload).catch(error => {
+webpush.sendNotification(subscription, payload).catch(error => {
   console.error(error.stack);
 });

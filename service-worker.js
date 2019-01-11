@@ -24,17 +24,18 @@ self.addEventListener('install', function(event) {
 
 self.addEventListener('fetch', function(event) {
   event.respondWith(
+    //fetchHandler(event.request)
     staleWhileRevalidate(event)
   );
 });
 
-const fetchHandler = request => {
+function getProfileImg(request) {
   let url = request.url;
-  if (/profile\.jpg$/.test(url)) {
-    // Connection Type is not available yet
-    // https://developer.mozilla.org/en-US/docs/Web/API/Network_Information_API
-    // navigator.connection.type === 'cellular'
-
+  // Connection Type is not available yet
+  // https://developer.mozilla.org/en-US/docs/Web/API/Network_Information_API
+  // navigator.connection.type === 'cellular'
+  // http://wicg.github.io/netinfo/#effective-connection-types
+  try {
     let size = {
       "2g": 'old',
       "3g": 'head',
@@ -42,23 +43,27 @@ const fetchHandler = request => {
       "slow-2g": 'xsmall'
     }[navigator.connection.effectiveType];
 
-    return fetch(url.replace(/\.[a-z]*$/, `_${size}$&`))
-            .catch(e => caches.match('/static/img/profile.jpg'))
+    return url.replace(/\.[a-z]*$/, `_${size}$&`)
+  } catch(e) {
+    return url;
   }
-
-  return fetch(request);
 }
 
 const staleWhileRevalidate = event =>
-  caches.open(myCache).then((cache) =>
-    cache.match(event.request).then((response) => {
-      var fetchPromise = fetchHandler(event.request).then((networkResponse) => {
-        cache.put(event.request, networkResponse.clone());
+  caches.open(myCache).then((cache) => {
+    let request = event.request;
+    if (/profile\.jpg$/.test(event.request.url)) {
+      request = getProfileImg(event.request);
+    }
+
+    return cache.match(request).then((response) => {
+      let fetchPromise = fetch(request).then((networkResponse) => {
+        cache.put(request, networkResponse.clone());
         return networkResponse;
-      })
+      }).catch(e => caches.match('/static/img/profile.jpg'))
       return response || fetchPromise;
     })
-  )
+  });
 
 self.addEventListener('notificationclose', e => {
   console.log('Closed notification: ', e);

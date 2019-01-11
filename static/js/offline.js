@@ -5,6 +5,7 @@ function updateOnlineStatus(event) {
 
   profileImg.src = navigator.onLine ? src.replace('_offline', '') : src.replace('.jpg', '_offline.jpg');
 }
+updateOnlineStatus();
 
 // This doesn't work on Mobile Safari?? :-(
 window.addEventListener('online',  updateOnlineStatus);
