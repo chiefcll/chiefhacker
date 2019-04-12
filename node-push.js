@@ -1,14 +1,16 @@
 #! /usr/bin/env node
+//Details https://www.clarkio.com/2017/08/22/pwa-web-push-3/
+//https://github.com/web-push-libs/web-push
 const webpush = require('web-push');
 const privateVapidKey = require('./private_key.js');
 const publicVapidKey = 'BEjYRLcs198fROr8BWQtwbHKA01kigkq23XnzthjRM-EPnKmLNv6S5Fj22P2hNl2ii95l_zQRvG-mFioBpfhbL8';
 
 const subscription = {
-  "endpoint": "https://fcm.googleapis.com/fcm/send/f0ZND_zrgBA:APA91bH_O8h-WMEPqg85XUD_-8LpMcF1MKhWPMmedfgn7VFy5_S_oRn7kNur_f_XSaOEpfeIKW2ClKE_HD4qbTFQnl432PL6bKpye0LzjNg4QPcAdoqL7R4nLQsaH9Y3VN5FcPq-g12j",
+  "endpoint": "https://fcm.googleapis.com/fcm/send/ekAkv_e93gc:APA91bHDFgObaqBmdi-sRA_xCxFoknlzOq8GJDo-LtJJkC1ncSYGlq3TFjxcw76_oJTWRBZ-QjVMBVpe40EYgBoBSDQqJBka889x1wSOx5RmIhrPMekogWjHeXhiHT_FRPzSVIl-2Jjv",
   "expirationTime": null,
   "keys": {
-    "p256dh": "BNHVnpwvUBHkf-MhebzAWWYq-fg7gHWHYL3lzDok9-JfiFvtw9yDSP5Mpmlj_ODHRhaJ8NrfkrIIXZmWGAaHz1U",
-    "auth": "kJ9S6-KqxKn00uoER-NlWQ"
+    "p256dh": "BDMyTLDwN-tAiWAv6lTFnAyeB5L-zg3zy18Zndvv2DAc1FJm-Fo9U4cuplLVTlIwQpRgnIYnd-TKOdug_XoEr-U",
+    "auth": "vgdYIGc4swrBp_0YWeL9hQ"
   }
 };
 
@@ -26,7 +28,7 @@ webpush.setVapidDetails('mailto:chiefcll@gmail.com', publicVapidKey, privateVapi
 //Use Chrome tools with {"title": "hi", "body": "there"}
 const payload = JSON.stringify({
   title: 'Conference Alert',
-  body: 'Chris is speaking at CodeMash!'
+  body: 'Chris is speaking at CodeStock!'
 });
 
 webpush.sendNotification(subscription, payload).catch(error => {

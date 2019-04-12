@@ -81,11 +81,19 @@ self.addEventListener('notificationclick', ({notification, action}) => {
   }
 });
 
-self.addEventListener('push', function(e) {
-  let notification = e.data.json();
-  e.waitUntil(
-    self.registration.showNotification(notification.title, {
-      body: notification.body,
+self.addEventListener('push', function(event) {
+  let title, body;
+
+  try {
+    ({title, body} = event.data.json());
+  } catch(error) {
+    title = 'Dev Tools Push';
+    body = event.data.text();
+  }
+
+  event.waitUntil(
+    self.registration.showNotification(title, {
+      body: body,
       icon: 'static/img/icons/icon-144x144.png',
       image: '/static/img/speaking.jpg',
       tag: 'push-conference-alert'

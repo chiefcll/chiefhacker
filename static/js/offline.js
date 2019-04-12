@@ -7,6 +7,5 @@ function updateOnlineStatus(event) {
 }
 updateOnlineStatus();
 
-// This doesn't work on Mobile Safari?? :-(
 window.addEventListener('online',  updateOnlineStatus);
 window.addEventListener('offline', updateOnlineStatus);

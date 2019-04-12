@@ -8,7 +8,7 @@ const MyNotification = {
   sound: '/static/sounds/BOTW_Fanfare_HeartContainer.wav',
   click_action: '/speaking.html',
   //Keeps the notification displayed
-  requireInteraction: true,
+  requireInteraction: false,
   //dont play a sound
   silent: false,
   // Vibration: Star Wars shamelessly taken from the awesome Peter Beverloo
