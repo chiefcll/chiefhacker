@@ -15,6 +15,9 @@ self.addEventListener('install', function(event) {
         '/static/css/main.css',
         '/static/img/profile.jpg',
         '/static/img/profile_offline.jpg',
+        '/static/img/profile_old.jpg',
+        '/static/img/profile_small.jpg',
+        '/static/img/profile_xsmall.jpg',
         '/static/js/offline.js',
         '/static/js/notifications.js',
       ]);
