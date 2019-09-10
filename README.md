@@ -42,10 +42,14 @@ Sync event to get latest speaking.html
 
 
 #Demo Steps
-Chrome Application Tab
-Offline Mode
-Dinosaur Game
-Service Worker (Install + Cache)
-Connection Speed
-Notifications
-Push Notifications
+* Chrome Application Tab
+* Offline Mode
+* Dinosaur Game
+* Service Worker (Install + Cache)
+* Installing Application
+* Connection Speed
+* Notifications
+* Push Notifications
+ - Generate a VAPID key
+ - Add Public Key into web registration
+ - Push messages with private key
