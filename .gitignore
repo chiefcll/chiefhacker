@@ -15,3 +15,5 @@ Gemfile.lock
 node_modules
 private_key.js
 .firebase/*
+vendor/
+.bundle/
