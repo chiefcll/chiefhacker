@@ -1,9 +1,11 @@
 //PWAs can detect network status!!
 function updateOnlineStatus(event) {
   let profileImg = document.getElementById('profileImg');
-  let src = profileImg.src;
+  if (profileImg) {
+    let src = profileImg.src;
 
-  profileImg.src = navigator.onLine ? src.replace('_offline', '') : src.replace('.jpg', '_offline.jpg');
+    profileImg.src = navigator.onLine ? src.replace('_offline', '') : src.replace('.jpg', '_offline.jpg');
+  }
 }
 updateOnlineStatus();
 
