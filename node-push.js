@@ -6,11 +6,11 @@ const privateVapidKey = require('./private_key.js');
 const publicVapidKey = 'BEjYRLcs198fROr8BWQtwbHKA01kigkq23XnzthjRM-EPnKmLNv6S5Fj22P2hNl2ii95l_zQRvG-mFioBpfhbL8';
 
 const subscription = {
-  "endpoint": "https://fcm.googleapis.com/fcm/send/ekAkv_e93gc:APA91bHDFgObaqBmdi-sRA_xCxFoknlzOq8GJDo-LtJJkC1ncSYGlq3TFjxcw76_oJTWRBZ-QjVMBVpe40EYgBoBSDQqJBka889x1wSOx5RmIhrPMekogWjHeXhiHT_FRPzSVIl-2Jjv",
+  "endpoint": "https://fcm.googleapis.com/fcm/send/cSGXh54uPok:APA91bEhDxKzluq_uVA8DaGDi4SPuK4RSXW4KhkeDNI1YSaCrdgz8Z-4eOfADIWF7Oz4gJ6NkdlSTgAqu7gvR8BkuTs2HfKJm2gM9zR5j9Qt1CYyT9ayxRjxRG9Xf4edjzTf9HbELLme",
   "expirationTime": null,
   "keys": {
-    "p256dh": "BDMyTLDwN-tAiWAv6lTFnAyeB5L-zg3zy18Zndvv2DAc1FJm-Fo9U4cuplLVTlIwQpRgnIYnd-TKOdug_XoEr-U",
-    "auth": "vgdYIGc4swrBp_0YWeL9hQ"
+    "p256dh": "BLx97DHs8zUav8cQ7sXlvwNd1kI9iz_sjKlI5El84pxHh54vUPQ6xRbUHjrGEI-pRdQrxmRePRvKgbOtLeIGhvY",
+    "auth": "H5bFGEPw7Fn9moQiMLwYgQ"
   }
 };
 
@@ -28,7 +28,7 @@ webpush.setVapidDetails('mailto:chiefcll@gmail.com', publicVapidKey, privateVapi
 //Use Chrome tools with {"title": "hi", "body": "there"}
 const payload = JSON.stringify({
   title: 'Conference Alert',
-  body: 'Chris is speaking at CodeStock!'
+  body: 'Chris is speaking at PWX!'
 });
 
 webpush.sendNotification(subscription, payload).catch(error => {
