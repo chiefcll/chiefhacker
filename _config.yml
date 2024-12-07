@@ -9,11 +9,10 @@ plugins: [jekyll-paginate]
 port: 3000
 safe: true
 
-
 # edit here to achieve your personal greatness
 url: http://chiefcll.github.io/
 baseurl: /
-title: Chris Lorenzo - Distinguished Engineer at Comcast in Philadelphia
+title: Chris Lorenzo - Fellow Lightning JS Developer for TV Apps at GCS in Philadelphia
 author: Chris Lorenzo
 description: Personal blog and resume
 avatar: profile.jpg
@@ -21,11 +20,10 @@ avatar: profile.jpg
 github: chiefcll # username
 twitter: chiefcll
 linkedin: chris-lorenzo-3323667
-stackoverflow: users/9324642/chris-lorenzo   #e.g: users/2735833/proton1h1
+stackoverflow: users/9324642/chris-lorenzo #e.g: users/2735833/proton1h1
 #Comment out if you don't want disqus
 #disqus: username
 #google_analytics: UA-69391421-1
-
 
 # needed for travis-ci build
 exclude:
