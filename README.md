@@ -1,10 +1,10 @@
-# Welcome to Chiefhackers Website!
+# Welcome to Chiefhackers Website!
 
 ### Hello! :wave:
 
-This is my personal site built with [Jekyll](https://jekyllrb.com/) and [Sustain](https://github.com/jekyller/sustain/) theme.
+This site is built with Hugo and the CareerCanvas theme.
 
-It serves as an example on how to create a PWA from a personal website and also to keep track of my speaking engagements.
+It showcases my work, experience, and speaking engagements.
 
 [Slides from my talk](https://tinyurl.com/ydcxx3ne)
 

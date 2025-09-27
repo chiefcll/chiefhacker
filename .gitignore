@@ -1,11 +1,6 @@
 # OS X
 .DS_Store
 
-# Jekyll build
-/_site/
-.jekyll-metadata
-Gemfile.lock
-
 # webstorm
 .idea/
 
