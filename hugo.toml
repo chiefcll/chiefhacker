@@ -11,14 +11,21 @@ weight = 20
 
 [params]
 name = "Chris Lorenzo"
-tagline = "Fellow Lightning Developer @ GCS"
-location = "Philadelphia, PA"
-description = "I enjoy building and motivating teams and ramping up new projects using the latest patterns and web primitives. I specialize in TV app development with Lightning JS and Solid."
+tagline = "Web Performance Leader • Lightning JS Fellow @ GCS"
+hero_location = "Philadelphia, PA"
+hero_description = "Web Performance Professional with deep expertise in JavaScript, React, and TypeScript. I help teams ship fast, resilient, and accessible experiences at scale — from TV apps and media to modern web platforms."
 author = "Chris Lorenzo"
+resume_url_en = "/files/ChrisLorenzoResume-Tech-GCS.pdf"
+linkedin_url = "https://www.linkedin.com/in/chris-lorenzo/"
+github_url = "https://github.com/chiefcll"
 
-# Optionally set social links later
-# linkedin_url = "https://linkedin.com/in/YOUR_USERNAME"
-# github_url = "https://github.com/YOUR_USERNAME"
+[[params.social]]
+icon = "linkedin-in"
+url = "https://www.linkedin.com/in/chris-lorenzo/"
+
+[[params.social]]
+icon = "github"
+url = "https://github.com/chiefcll"
 
 [params.colors.semantic]
 primary = "blue_500"
