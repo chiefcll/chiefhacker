@@ -4,8 +4,8 @@
   "description": "[![Build Status](https://secure.travis-ci.org/jekyller/sustain.png?branch=gh-pages)](http://travis-ci.org/jekyller/sustain) [![Ruby](https://img.shields.io/badge/ruby-2.4.2-blue.svg?style=flat)](http://travis-ci.org/jekyller/sustain) [![Jekyll](https://img.shields.io/badge/jekyll-3.6.2-blue.svg?style=flat)](http://travis-ci.org/jekyller/sustain)",
   "main": "index.js",
   "scripts": {
-    "build": "bundle exec jekyll build",
-    "start": "bundle exec jekyll serve",
+    "dev": "hugo server -D",
+    "build": "hugo --minify",
     "deploy": "firebase deploy",
     "push": "node node-push.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -21,9 +21,13 @@
   },
   "homepage": "https://github.com/chiefcll/chiefhacker#readme",
   "devDependencies": {
+    "autoprefixer": "^10.4.21",
     "firebase-cli": "^1.2.0",
     "firebase-tools": "^6.2.2",
-    "jekyll": "^3.0.0-beta1"
+    "jekyll": "^3.0.0-beta1",
+    "postcss": "^8.5.6",
+    "postcss-cli": "^11.0.1",
+    "tailwindcss": "^3.4.17"
   },
   "dependencies": {
     "eslint": "^5.10.0",
