@@ -1,0 +1,27 @@
+baseURL = "https://www.chiefhacker.com/"
+languageCode = "en-us"
+title = "Chris Lorenzo"
+theme = "careercanvas"
+
+# Menus
+[[menu.main]]
+name = "Speaking"
+url = "/speaking"
+weight = 20
+
+[params]
+name = "Chris Lorenzo"
+tagline = "Fellow Lightning Developer @ GCS"
+location = "Philadelphia, PA"
+description = "I enjoy building and motivating teams and ramping up new projects using the latest patterns and web primitives. I specialize in TV app development with Lightning JS and Solid."
+author = "Chris Lorenzo"
+
+# Optionally set social links later
+# linkedin_url = "https://linkedin.com/in/YOUR_USERNAME"
+# github_url = "https://github.com/YOUR_USERNAME"
+
+[params.colors.semantic]
+primary = "blue_500"
+primary_dark = "blue_700"
+primary_light = "blue_400"
+primary_lighter = "blue_300"

@@ -17,3 +17,8 @@ private_key.js
 .firebase/*
 vendor/
 .bundle/
+
+# Hugo build artifacts
+public/
+resources/
+.hugo_build.lock
