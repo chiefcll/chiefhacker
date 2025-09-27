@@ -14,6 +14,21 @@ title = "Leadership"
 value = "Built and led teams delivering high‑impact, high‑availability experiences. Passionate about mentoring and raising the bar for performance culture."
 
 [[quickfacts]]
+icon = "people-group"
+title = "Community"
+value = "Co‑Chair, W3C Media & Entertainment Group"
+
+[[quickfacts]]
+icon = "trophy"
+title = "Awards"
+value = "Comcast Circle of Success (2021) — Xfi Group"
+
+[[quickfacts]]
+icon = "copyright"
+title = "Patents"
+value = "- Display Screen Or Portion Thereof With Animated GUI (US D992573, 2023)\n- Systems and methods for on‑network device identification (US 20200036716 A1, 2022)"
+
+[[quickfacts]]
 icon = "location-dot"
 title = "Location"
 value = "Philadelphia, PA (open to remote/US time zones)"
