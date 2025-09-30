@@ -37,6 +37,8 @@ linkedin_text = "linkedin.com/in/chris-lorenzo"
 github_url = "https://github.com/chiefcll"
 github_text = "github.com/chiefcll"
 email = "chiefcll@gmail.com"
+collab_tags = ["performance", "javascript", "typescript", "react", "tv"]
+formspree_endpoint = "https://formspree.io/f/xanpqzvw"
 
 [[params.social]]
 icon = "linkedin-in"
